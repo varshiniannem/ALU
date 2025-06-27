@@ -1,0 +1,14 @@
+module alu( A,B, ALU_Sel, ALU_Result);
+  input [7:0] A,B;
+  input [1:0] ALU_Sel;
+  output reg [7:0] ALU_Result;
+  always @(*) begin
+    case(ALU_Sel)
+      2'b00:ALU_Result = A + B ;
+      2'b01:ALU_Result = A - B ;
+      2'b10:ALU_Result = A/B;
+      2'b00:ALU_Result = (A & B);
+      default:ALU_Result = 8'bX;
+    endcase
+  end
+endmodule
